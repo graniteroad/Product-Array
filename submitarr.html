@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Submit Array</title>
+<style type="text/css">
+/*
+ * jQuery AJAX Call to PHP Script with JSON Return
+ * http://www.jonsuh.com
+ *
+ * Copyright (c) 2012 Jonathan Suh
+ * Free to use under the MIT license.
+ * http://www.opensource.org/licenses/mit-license.php
+ */
+
+body {font-family: Helvetica, Arial, sans-serif; font-size: 13px}
+.the-return {background: #f0f0f0; padding: 10px; margin-top: 15px}
+</style>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script type="text/javascript">
+$("document").ready(function(){
+	$(".js-ajax-php-json").submit(function(){
+		var data = {
+			"action": "prod"
+		};
+		data = $(this).serialize() + "&" + $.param(data);
+		$.ajax({
+			type: "POST",
+			dataType: "json",
+			url: "response.php",
+			data: data,
+			success: function(data) {
+				$(".the-return").html(
+					"Size of Array: " + data["count"] + "<br />" + "Original Array: " + data["original_array"] + "<br />" + "Product Array: "
+					+ data["product_array"]
+					);
+
+				alert("Form submitted successfully.\nReturned json: " + data["json"]);
+			}
+		});
+		return false;
+	});
+});
+</script>
+</head>
+<form action="json-return.php" class="js-ajax-php-json" method="post" accept-charset="utf-8">
+<input type="text" name="array_size" value="" placeholder="Size Of Array"/>
+<input type="submit" name="submit" value="Submit form"  />
+</form>
+<div class="the-return">
+  [HTML is replaced when successful.]
+</div>
+<body>
+</body>
+</html>
