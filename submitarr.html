@@ -14,7 +14,53 @@
  */
 
 body {font-family: Helvetica, Arial, sans-serif; font-size: 13px}
-.the-return {background: #f0f0f0; padding: 10px; margin-top: 15px}
+.the-return {background: #f0f0f0; padding: 10px; margin-top: 15px; word-wrap: break-word;}
+
+/*CSS for input textbox and password*/
+
+input[type='text']
+{
+width: 200px;
+height: 12px;
+border-radius: 3px;
+border: 1px solid #CCC;
+padding: 8px;
+font-weight: 200;
+font-size: 15px;
+font-family: Verdana;
+box-shadow: 1px 1px 5px #CCC;
+}
+
+input[type='text']:hover
+{
+width: 200px;
+height: 12px;
+border-radius: 3px;
+border: 1px solid #aaa;
+padding: 8px;
+font-weight: 200;
+font-size: 15px;
+font-family: Verdana;
+box-shadow: 1px 1px 5px #CCC;
+}
+
+/*input type for submit button*/
+
+input[type='submit']
+{
+width: 150px;
+height: 34px;
+border: 2px solid white;
+background-color:#CCC;
+}
+input[type='submit']:hover
+{
+width: 150px;
+height: 34px;
+border: 2px solid white;
+background-color:#000000;
+color:#fff;
+}
 </style>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
 <script type="text/javascript">
@@ -45,7 +91,7 @@ $("document").ready(function(){
 </head>
 <form action="json-return.php" class="js-ajax-php-json" method="post" accept-charset="utf-8">
 <input type="text" name="array_size" value="" placeholder="Size Of Array"/>
-<input type="submit" name="submit" value="Submit form"  />
+<input type="submit" name="submit" value="Submit" />
 </form>
 <div class="the-return">
   [HTML is replaced when successful.]

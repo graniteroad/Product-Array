@@ -13,7 +13,9 @@ if (is_ajax()) {
 function is_ajax() {
 	return isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest';
 }
-
+/*
+ * Test Functionality
+ *  */
 function test_function(){
 	$return = $_POST;
 	
@@ -26,7 +28,9 @@ function test_function(){
 	$return["json"] = json_encode($return);
 	echo json_encode($return);
 }
- 
+/*
+ * Test the Product array 
+ *  */
 function test_prod(){
 	$return = $_POST;
 	$arrsize = $return["array_size"];
@@ -40,7 +44,6 @@ function test_prod(){
 	
 	$prod = prodArr($arr);
 	
-	$return["count"] = $arrsize;
 	$return["original_array"] = json_encode($arr);
 	$return["product_array"] = json_encode($prod);
 	$return["json"] = json_encode($return);
