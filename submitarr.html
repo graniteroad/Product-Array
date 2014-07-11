@@ -16,7 +16,7 @@
 body {font-family: Helvetica, Arial, sans-serif; font-size: 13px}
 .the-return {background: #f0f0f0; padding: 10px; margin-top: 15px; word-wrap: break-word;}
 
-/*CSS for input textbox and password*/
+/*CSS for input textbox*/
 
 input[type='text']
 {
@@ -77,7 +77,7 @@ $("document").ready(function(){
 			data: data,
 			success: function(data) {
 				$(".the-return").html(
-					"Size of Array: " + data["count"] + "<br />" + "Original Array: " + data["original_array"] + "<br />" + "Product Array: "
+					"Size of Array: " + data["array_size"] + "<br />" + "Original Array: " + data["original_array"] + "<br />" + "Product Array: "
 					+ data["product_array"]
 					);
 
